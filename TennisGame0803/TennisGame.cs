@@ -6,6 +6,10 @@
 
         public string GetScore()
         {
+            if (_firstPlayerScoreTimes == 2)
+                return "Thirty_Love";
+            {
+            }
             if (_firstPlayerScoreTimes == 1)
             {
                 return "Fifteen_Love";
