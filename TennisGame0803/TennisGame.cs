@@ -21,12 +21,13 @@ namespace TennisGame0803
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
-                if (_firstPlayerScoreTimes >= 3 || _secondPlayerScoreTimes >= 3)
+                if (_firstPlayerScoreTimes >= 4 || _secondPlayerScoreTimes >= 4)
                 {
                     if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
                         return GetAdvPlayer() + "_Adv";
                     }
+                    return GetAdvPlayer() + "_Win";
                 }
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
             }
