@@ -17,6 +17,10 @@ namespace TennisGame0803
 
         public string GetScore()
         {
+            if (_secondPlayerScoreTimes == 2)
+            {
+                return "Love_Thirty";
+            }
             if (_secondPlayerScoreTimes == 1)
             {
                 return "Love_Fifteen";
