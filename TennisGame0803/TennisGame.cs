@@ -23,7 +23,7 @@ namespace TennisGame0803
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
             }
 
-            if (_firstPlayerScoreTimes == 3)
+            if (_firstPlayerScoreTimes >= 3)
             {
                 return "Deuce";
             }
