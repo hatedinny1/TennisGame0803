@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TennisGame0803
 {
@@ -20,11 +21,12 @@ namespace TennisGame0803
         {
             if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
-                if (_firstPlayerScoreTimes >= 3)
+                if (_firstPlayerScoreTimes >= 3 || _secondPlayerScoreTimes >= 3)
                 {
-                    if (_firstPlayerScoreTimes - _secondPlayerScoreTimes == 1)
+                    if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
-                        return "Player1_Adv";
+                        var advPlayer = _firstPlayerScoreTimes > _secondPlayerScoreTimes ? "Player1" : "Player2";
+                        return advPlayer + "_Adv";
                     }
                 }
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];

@@ -88,6 +88,14 @@ namespace TennisGame0803
             ScoreShouldBe("Player1_Adv");
         }
 
+        [TestMethod]
+        public void Player2_Adv()
+        {
+            GivenFirstPlayerScore(3);
+            GivenSecondPlayerScore(4);
+            ScoreShouldBe("Player2_Adv");
+        }
+
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)
