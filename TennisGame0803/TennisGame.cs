@@ -25,8 +25,7 @@ namespace TennisGame0803
                 {
                     if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
                     {
-                        var advPlayer = _firstPlayerScoreTimes > _secondPlayerScoreTimes ? "Player1" : "Player2";
-                        return advPlayer + "_Adv";
+                        return GetAdvPlayer() + "_Adv";
                     }
                 }
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
@@ -37,6 +36,12 @@ namespace TennisGame0803
                 return "Deuce";
             }
             return _scoreLookUp[_firstPlayerScoreTimes] + "_All";
+        }
+
+        private string GetAdvPlayer()
+        {
+            var advPlayer = _firstPlayerScoreTimes > _secondPlayerScoreTimes ? "Player1" : "Player2";
+            return advPlayer;
         }
 
         public void FirstPlayerScore()
