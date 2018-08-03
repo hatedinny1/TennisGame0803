@@ -64,6 +64,14 @@ namespace TennisGame0803
             ScoreShouldBe("Thirty_All");
         }
 
+        [TestMethod]
+        public void Deuce()
+        {
+            GivenFirstPlayerScore(3);
+            GivenSecondPlayerScore(3);
+            ScoreShouldBe("Deuce");
+        }
+
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)
