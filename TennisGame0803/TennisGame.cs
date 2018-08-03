@@ -19,24 +19,54 @@ namespace TennisGame0803
 
         public string GetScore()
         {
-            if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
-            {
-                if (_firstPlayerScoreTimes >= 4 || _secondPlayerScoreTimes >= 4)
-                {
-                    if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
-                    {
-                        return GetAdvPlayer() + "_Adv";
-                    }
-                    return GetAdvPlayer() + "_Win";
-                }
-                return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
-            }
+            return IsDifferentScore()
+                ? (IsGamePoint() ? (IsAdv() ? Adv() : Win()) : NormalScoreLookUp())
+                : (IsDeuce() ? Deuce() : SameScore());
+        }
 
-            if (_firstPlayerScoreTimes >= 3)
-            {
-                return "Deuce";
-            }
+        private string SameScore()
+        {
             return _scoreLookUp[_firstPlayerScoreTimes] + "_All";
+        }
+
+        private static string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsDeuce()
+        {
+            return _firstPlayerScoreTimes >= 3 && _firstPlayerScoreTimes == _secondPlayerScoreTimes;
+        }
+
+        private string NormalScoreLookUp()
+        {
+            return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
+        }
+
+        private string Win()
+        {
+            return GetAdvPlayer() + "_Win";
+        }
+
+        private string Adv()
+        {
+            return GetAdvPlayer() + "_Adv";
+        }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1;
+        }
+
+        private bool IsGamePoint()
+        {
+            return _firstPlayerScoreTimes >= 4 || _secondPlayerScoreTimes >= 4;
+        }
+
+        private bool IsDifferentScore()
+        {
+            return _firstPlayerScoreTimes != _secondPlayerScoreTimes;
         }
 
         private string GetAdvPlayer()
