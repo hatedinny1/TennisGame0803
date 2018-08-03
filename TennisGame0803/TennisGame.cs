@@ -8,6 +8,7 @@ namespace TennisGame0803
 
         private Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>()
         {
+            {0,"Love" },
             {1,"Fifteen" },
             {2,"Thirty" },
             {3,"Forty" },
@@ -17,17 +18,9 @@ namespace TennisGame0803
 
         public string GetScore()
         {
-            if (_secondPlayerScoreTimes == 2)
+            if (_firstPlayerScoreTimes > 0 || _secondPlayerScoreTimes > 0)
             {
-                return "Love_Thirty";
-            }
-            if (_secondPlayerScoreTimes == 1)
-            {
-                return "Love_Fifteen";
-            }
-            if (_firstPlayerScoreTimes > 0)
-            {
-                return _scoreLookUp[_firstPlayerScoreTimes] + "_Love";
+                return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
             }
             return "Love_All";
         }
