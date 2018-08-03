@@ -48,6 +48,13 @@ namespace TennisGame0803
             ScoreShouldBe("Love_Thirty");
         }
 
+        [TestMethod]
+        public void Fifteen_All()
+        {
+            GivenFirstPlayerScore(1);
+            GivenSecondPlayerScore(1);
+            ScoreShouldBe("Fifteen_All");
+        }
         private void GivenSecondPlayerScore(int times)
         {
             for (int i = 0; i < times; i++)

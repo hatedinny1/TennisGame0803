@@ -18,9 +18,14 @@ namespace TennisGame0803
 
         public string GetScore()
         {
-            if (_firstPlayerScoreTimes > 0 || _secondPlayerScoreTimes > 0)
+            if (_firstPlayerScoreTimes != _secondPlayerScoreTimes)
             {
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_" + _scoreLookUp[_secondPlayerScoreTimes];
+            }
+
+            if (_firstPlayerScoreTimes == 1)
+            {
+                return "Fifteen_All";
             }
             return "Love_All";
         }
