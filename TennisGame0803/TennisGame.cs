@@ -1,18 +1,22 @@
-﻿namespace TennisGame0803
+﻿using System.Collections.Generic;
+
+namespace TennisGame0803
 {
     public class TennisGame
     {
         private int _firstPlayerScoreTimes;
 
+        private Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>()
+        {
+            {1,"Fifteen" },
+            {2,"Thirty" },
+        };
+
         public string GetScore()
         {
-            if (_firstPlayerScoreTimes == 2)
-                return "Thirty_Love";
+            if (_firstPlayerScoreTimes > 0)
             {
-            }
-            if (_firstPlayerScoreTimes == 1)
-            {
-                return "Fifteen_Love";
+                return _scoreLookUp[_firstPlayerScoreTimes] + "_Love";
             }
             return "Love_All";
         }
