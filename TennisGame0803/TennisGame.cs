@@ -13,8 +13,14 @@ namespace TennisGame0803
             {3,"Forty" },
         };
 
+        private int _secondPlayerScoreTimes;
+
         public string GetScore()
         {
+            if (_secondPlayerScoreTimes == 1)
+            {
+                return "Love_Fifteen";
+            }
             if (_firstPlayerScoreTimes > 0)
             {
                 return _scoreLookUp[_firstPlayerScoreTimes] + "_Love";
@@ -25,6 +31,11 @@ namespace TennisGame0803
         public void FirstPlayerScore()
         {
             _firstPlayerScoreTimes++;
+        }
+
+        public void SecondPlayerScore()
+        {
+            _secondPlayerScoreTimes++;
         }
     }
 }
